@@ -1,0 +1,17 @@
+<div class="col">
+    <a class="text-info" (click)="toggleButton()"><i class="fas fa-search"></i>Recherche</a>
+    <div [ngClass]="{'hidden': hidden}">
+        <input class="search" type="text" placeholder="Par référence">
+        <input class="search" type="text" placeholder="Par sous famille">
+    </div>
+
+
+    <div [ngClass]="{'down': down}">
+        <app-crud [title]="'Produits'" [data]="produits" [service]="produitService" [initItem]="produit"
+            [initForm]="produitForm" [dataModelList]="produitsModel">
+
+        </app-crud>
+
+
+    </div>
+</div>

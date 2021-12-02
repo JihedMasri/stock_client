@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "username": "user",
+        "nom": "Masri",
+        "prenom": "Jihed",
+        "password": null,
+        "profession": "developpeur",
+        "enable": true,
+        "roles": [
+            {
+                "id": 1,
+                "name": "ROLE_USER"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "username": "admin",
+        "nom": "Masri",
+        "prenom": "Jihed",
+        "password": null,
+        "profession": "developpeur",
+        "enable": true,
+        "roles": [
+            {
+                "id": 1,
+                "name": "ROLE_USER"
+            },
+            {
+                "id": 2,
+                "name": "ROLE_ADMIN"
+            }
+        ]
+    }
+]

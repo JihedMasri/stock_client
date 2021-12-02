@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "ref": "1555580",
+        "quantite": 4,
+        "prixUnitaire": 3,
+        "sousfamille": {
+            "id": 1,
+            "nom": "sous1.1",
+            "famille": {
+                "id": 1,
+                "nom": "famille 1"
+            }
+        }
+    },
+    {
+        "id": 2,
+        "ref": "1887913",
+        "quantite": 2,
+        "prixUnitaire": 2,
+        "sousfamille": {
+            "id": 1,
+            "nom": "sous1.1",
+            "famille": {
+                "id": 1,
+                "nom": "famille 1"
+            }
+        }
+    },
+    {
+        "id": 3,
+        "ref": "18794531",
+        "quantite": 2,
+        "prixUnitaire": 2,
+        "sousfamille": {
+            "id": 1,
+            "nom": "sous1.1",
+            "famille": {
+                "id": 1,
+                "nom": "famille 1"
+            }
+        }
+    },
+    {
+        "id": 4,
+        "ref": "184458548",
+        "quantite": 5,
+        "prixUnitaire": 7,
+        "sousfamille": {
+            "id": 2,
+            "nom": "sous1.2",
+            "famille": {
+                "id": 1,
+                "nom": "famille 1"
+            }
+        }
+    },
+    {
+        "id": 5,
+        "ref": "18794541",
+        "quantite": 2,
+        "prixUnitaire": 2,
+        "sousfamille": {
+            "id": 3,
+            "nom": "sous1.2",
+            "famille": {
+                "id": 1,
+                "nom": "famille 2"
+            }
+        }
+    }
+]

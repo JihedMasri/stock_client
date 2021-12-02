@@ -1,0 +1,43 @@
+<div class="nav-left-sidebar sidebar-dark">
+  <div class="menu-list">
+    <nav class="navbar navbar-expand-lg navbar-light">
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav flex-column">
+          <li class="nav-divider">
+            Menu
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link active" href="#homeSubmenu" aria-expanded="false"
+              [routerLink]="[{outlets:{contentOutlet:'dashboard'}}]" routerLinkActive="active"><i
+                class="fa fa-fw fa-user-circle"></i>Dashboard </a>
+
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" [routerLink]="[{outlets:{contentOutlet:'produit'}}]"
+              routerLinkActive="active"><i class="fas fa-fw fa-table"></i>Produits</a>
+            <div id="submenu-5" class="collapse submenu" style="">
+
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="#pageSubmenu" aria-expanded="false" class="nav-link"
+              [routerLink]="[{outlets:{contentOutlet:'famille'}}]" *ngIf="hasRoleAdmin()" routerLinkActive="active"><i
+                class="fa fa-fw fa-rocket"></i>Familles</a>
+
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link" [routerLink]="[{outlets:{contentOutlet:'Sousfamille'}}]" *ngIf="hasRoleAdmin()"
+              routerLinkActive="active"><i class="fas fa-fw fa-chart-pie"></i>Sous Familles</a>
+
+          </li>
+          <li class="nav-item ">
+            <a href="#" class="nav-link" [routerLink]="[{outlets:{contentOutlet:'user'}}]" *ngIf="hasRoleAdmin()"
+              routerLinkActive="active"><i class="fab fa-fw fa-wpforms"></i>Utilisateurs</a>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</div>

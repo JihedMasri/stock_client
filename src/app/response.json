@@ -1,0 +1,33 @@
+{
+    "authorities": [
+        {
+            "authority": "ROLE_ADMIN"
+        },
+        {
+            "authority": "ROLE_USER"
+        }
+    ],
+    "details": {
+        "remoteAddress": "0:0:0:0:0:0:0:1",
+        "sessionId": null
+    },
+    "authenticated": true,
+    "principal": {
+        "password": "null",
+        "username": "admin",
+        "authorities": [
+            {
+                "authority": "ROLE_ADMIN"
+            },
+            {
+                "authority": "ROLE_USER"
+            }
+        ],
+        "accountNonExpired": true,
+        "accountNonLocked": true,
+        "credentialsNonExpired": true,
+        "enabled": true
+    },
+    "credentials": null,
+    "name": "admin"
+}

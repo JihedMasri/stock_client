@@ -1,0 +1,133 @@
+<ng-container *ngIf="data ; else loading" classe='bo'>
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-12" *ngIf="!addbutton">
+
+        <div class="card">
+          <h5 class="card-header">
+            <div class="floated">{{title}}</div>
+            <th class="floated" *ngIf="hasRoleAdmin()">
+              <!-- Button trigger modal -->
+              <a class=" add text-info" data-toggle="modal" data-target="#exampleModal"
+                (click)="operation = 'add'; init()"><i class="fas fa-plus-circle"></i>Ajouter</a>
+
+            </th>
+          </h5>
+
+          <div class="card-body p-0">
+            <div>
+
+
+              <table class="table">
+                <thead class="bg-light">
+                  <tr class="border-0">
+                    <th *ngFor=" let dataModel of dataModelList">{{dataModel.columnReference}}</th>
+                    <th *ngIf="hasRoleAdmin()">Actions</th>
+                  </tr>
+
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of data">
+                    <td *ngFor=" let dataModel of dataModelList">{{item[dataModel.columnName]}}</td>
+                    <td class='btn' *ngIf="hasRoleAdmin() ">
+                      <ul class="list-unstyled mb-0 d-flex justify-content-end ">
+
+                        <li><a class="text-info" data-toggle="modal" data-target="#exampleModal"
+                            (click)="operation = 'edit'; selectedItem = item;"><i class="fas fa-pencil-alt"></i></a>
+                        </li>
+                        <li><a class="text-danger" data-toggle="modal" data-target="#exampleModal"
+                            (click)="operation = 'remove';selectedItem = item;"><i class="far fa-trash-alt"></i></a>
+                        </li>
+
+                      </ul>
+
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class="modal-title">
+            <h5>
+              {{operation =='add' ? 'Ajouter ' :
+              operation =='edit' ? 'Modifier ':
+              operation =='remove' ? 'Supprimer ' : ''}}
+            </h5>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="card-body">
+            <div *ngIf="operation == 'add' || operation == 'edit'">
+              <form [formGroup]="crudForm">
+                <div *ngFor="let dataModel of dataModelList" [ngSwitch]="dataModel.dataType">
+                  <div class="form-group" *ngIf="!dataModel.readonly">
+                    <label>{{dataModel.columnReference}} :</label>
+                    <input *ngSwitchCase="'string'" type="text" class="form-control"
+                      formControlName="{{dataModel.columnName}}" [(ngModel)]="selectedItem[dataModel.columnName]" />
+                    <input *ngSwitchCase="'number'" type="number" class="form-control"
+                      formControlName="{{dataModel.columnName}}" [(ngModel)]="selectedItem[dataModel.columnName]" />
+                    <select *ngSwitchCase="'famille'" class="custom-select" formControlName="{{dataModel.columnName}}"
+                      [(ngModel)]="selectedItem[dataModel.columnName]">
+                      <option value="" disabled>choisir famille</option>
+                      <option *ngFor="let famille of familles" [ngValue]="famille.id">{{famille.nom}}</option>
+                    </select>
+                    <select *ngSwitchCase="'sousfamille'" class="custom-select"
+                      formControlName="{{dataModel.columnName}}" [(ngModel)]="selectedItem[dataModel.columnName]">
+                      <option value="" disabled>choisir Sousfamille</option>
+                      <option *ngFor="let sousfamille of familles_sous" [ngValue]="sousfamille.id">{{sousfamille.nom}}
+                      </option>
+                    </select>
+                  </div>
+
+                </div>
+
+
+
+                <button class="btn btn-success" [disabled]="crudForm.prestine || crudForm.invalid"
+                  (click)="operation == 'add' ? add() :update()" data-dismiss="modal">{{ operation =='add' ? 'Ajouter'
+                  :operation =='edit' ?'Modifier' : ''}}</button>
+
+              </form>
+            </div>
+            <div *ngIf=" operation == 'remove'">
+              <p class="card-title">
+                Id : {{selectedItem.id}}
+              </p>
+              <p>Voulez-vous supprimer cet élément ?</p>
+              <button class="btn btn-success" [disabled]="!selectedItem.id" (click)="delete()" data-dismiss="modal">
+                Confirmer</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #loading>
+  loading ...
+</ng-template>

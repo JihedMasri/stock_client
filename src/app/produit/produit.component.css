@@ -1,0 +1,47 @@
+.text-info{
+    position: relative;
+    float:left;
+    
+    top:100px;
+    left:80px;
+   
+   cursor: grab;}
+   /* app-crud{
+     position: relative;
+     top: 100px;  
+   } */
+   .hidden {
+    visibility: hidden;
+ 
+}
+/* .position{
+    position: relative;
+    left:80px
+} */
+.down {
+    position: relative;
+    top:70px;
+ 
+}
+.search{
+    
+    width: 20%;
+    /* float: left; */
+    background-color: #fcfcfc;
+    border: 0;
+    border-bottom: 2px solid lightgrey;
+    padding: 20px;
+    margin-bottom: 10px;
+    margin-top: 10px;   
+    margin-left: 10px;  
+}
+/* .handle {
+    height: 25px !important;
+    position: relative;
+    
+} */
+input{
+    position: relative;
+    top:120px;
+    left:10px;
+}
