@@ -53,26 +53,28 @@ dataModelList: DataModel[];
     console.log(this.addbutton)
   }
   hasRoleUser(){
-    let hasRole: boolean = false;
-    this.principal.authorities.forEach(item => {
-      if ((item.authority === 'ROLE_USER')) {
-        hasRole = true;
-      }
-       if ((item.authority === 'ROLE_ADMIN')) {
-        hasRole = false;
-      }
-    });
+    let hasRole: boolean = true;
+    // let hasRole: boolean = false;
+    // this.principal.authorities.forEach(item => {
+    //   if ((item.authority === 'ROLE_USER')) {
+    //     hasRole = true;
+    //   }
+    //    if ((item.authority === 'ROLE_ADMIN')) {
+    //     hasRole = false;
+    //   }
+    // });
     return hasRole;
   }
 
   hasRoleAdmin(){
-    let hasRole: boolean = false;
-    this.principal.authorities.forEach(item => {
-      if (item.authority === 'ROLE_ADMIN') {
-        hasRole = true;
-      }
+    let hasRole: boolean = true;
+    // let hasRole: boolean = false;
+    // this.principal.authorities.forEach(item => {
+    //   if (item.authority === 'ROLE_ADMIN') {
+    //     hasRole = true;
+    //   }
      
-    });
+    // });
     return hasRole;
   }
   createForm(){
@@ -151,18 +153,18 @@ dataModelList: DataModel[];
     //fetch data for modal (ADD,Edit)
     this.selectedItem = this.initItem;
     this.createForm();
-    this.http.get('http://localhost:8080/api/famille').subscribe(
+    this.http.get('http://localhost:8080/bateaus').subscribe(
          data => {this.familles=data;},
         error => { console.log('An error was occured.')},
         () => { console.log('loading data was done.')}
         
       );
-      this.http.get('http://localhost:8080/api/famille_sous').subscribe(
-         data => {this.familles_sous=data;},
-        error => { console.log('An error was occured.')},
-        () => { console.log('loading data was done.')}
+      // this.http.get('http://localhost:8080/api/famille_sous').subscribe(
+      //    data => {this.familles_sous=data;},
+      //   error => { console.log('An error was occured.')},
+      //   () => { console.log('loading data was done.')}
         
-      );
+      // );
   }
 
   delete(){

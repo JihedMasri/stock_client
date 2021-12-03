@@ -30,6 +30,7 @@ import { FamilleSousService } from './familles_sous/famille_sous.service';
 import { FamilleSousMockService } from './familles_sous/famille_sous.mock.service';
 import { FamillesSousComponent } from './familles_sous/familles_sous.component';
 import { DataComponent } from './shared/data/data.component';
+import { MyChartComponent } from './my-chart/my-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +45,8 @@ import { DataComponent } from './shared/data/data.component';
     CrudComponent,
     FamillesComponent,
     FamillesSousComponent,
-    DataComponent
+    DataComponent,
+    MyChartComponent
   ],
   imports: [
     BrowserModule,

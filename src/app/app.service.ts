@@ -12,26 +12,26 @@ import { stringify } from 'querystring';
 })
 export class AppService {
 
-authenticated: boolean= false;
+authenticated: boolean= true;
 
-  constructor(private http:HttpClient , private cookieservice :CookieService,private store:Store<PrincipalState>) { }
+  // constructor(private http:HttpClient , private cookieservice :CookieService,private store:Store<PrincipalState>) { }
 
-  authenticate(credentials,callback){
-    if(credentials ){
-      const token=btoa(credentials.username + ':' +credentials.password);
-      this.cookieservice.set('token',token);
-      this.http.get(API_URLS.USER_URL).subscribe(response =>{
-        if(response && response['name']){
-          this.authenticated = true;
-          this.store.dispatch({
-            type: SAVE_PRINCIPAL,
-            payload: response
-          });
-        } else {
-          this.authenticated = false;
-        }
-        return callback && callback();
-       });
-    }
-    }
+  // authenticate(credentials,callback){
+  //   if(credentials ){
+  //     const token=btoa(credentials.username + ':' +credentials.password);
+  //     this.cookieservice.set('token',token);
+  //     this.http.get(API_URLS.USER_URL).subscribe(response =>{
+  //       if(response && response['name']){
+  //         this.authenticated = true;
+  //         this.store.dispatch({
+  //           type: SAVE_PRINCIPAL,
+  //           payload: response
+  //         });
+  //       } else {
+  //         this.authenticated = false;
+  //       }
+  //       return callback && callback();
+  //      });
+  //   }
+  //   }
 }

@@ -1,4 +1,4 @@
-<div class="col">
+<!-- <div class="col">
       <app-data
       [title]="'Produits'"
       [data]="produits"
@@ -7,4 +7,38 @@
       [dataModelList]="produitsModel"
       >
       </app-data>
-      </div>
+      </div> -->
+      <div class="row" style="margin:50px 0 0 25px;">
+            <div class="col-lg-5">
+              <app-my-chart
+              [type]="'bar'"
+              [title]="'Produits par catégorie'"
+              [data]="produitsData"
+              ></app-my-chart>
+            </div>
+            <div class="col-lg-5">
+              <app-my-chart
+              [type]="'line'"
+              [title]="'Réprésentation linéaire des produits'"
+              [data]="produitsData"
+              >
+              </app-my-chart>
+            </div>
+          </div>
+          <div class="row" style="margin:20px 0 0 25px;">
+            <div class="col-lg-5">
+              <app-my-chart
+              [type]="'line'"
+              [title]="'Réprésentation linéaire des utilisateurs'"
+              [data]="usersData"
+              >
+              </app-my-chart>
+            </div>
+            <div class="col-lg-5">
+              <app-my-chart
+              [type]="'bar'"
+              [title]="'Utilisateurs par role'"
+              [data]="usersData"
+              ></app-my-chart>
+            </div>
+          </div>

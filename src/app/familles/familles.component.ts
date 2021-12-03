@@ -23,7 +23,7 @@ export class FamillesComponent implements OnInit {
   }
   ngOnInit() {
     this.familles = this.route.snapshot.data.familles;
-    this.http.get('http://localhost:8080/api/famille').subscribe(
+    this.http.get('http://localhost:8080/bateaus').subscribe(
         data => {this.famille=data;},
         error => { console.log('An error was occured.')},
         () => { console.log('loading data was done.')}
@@ -31,12 +31,17 @@ export class FamillesComponent implements OnInit {
        );
     this.familleForm = this.fb.group({
       nom: ['', Validators.required],
+      capacite: ['', Validators.required],
+      dateFabrication: ['', Validators.required],
+      type: ['', Validators.required],
     });
 
     this.famillesModel = [
     new DataModel('id','ID','number',true,[]),
     new DataModel('nom','Nom','string',false,[]),
-
+    new DataModel('capacite','Capacite','number',false,[]),
+    new DataModel('dateFabrication','date de Fabrication','date',false,[]),
+    new DataModel('type','Type de bateau','string',false,[]),
     ]
   }
  
